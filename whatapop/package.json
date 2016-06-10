@@ -1,0 +1,22 @@
+{
+  "name": "whatapop",
+  "version": "1.0.0",
+  "description": "Practica para Master KeepCoding de AngularJS",
+  "main": "index.js",
+  "scripts": {
+    "sparrest": "node ./node_modules/node-sparrest/node-sparrest.js",
+    "lite": "lite-server",
+    "dev": "concurrently 'npm run sparrest' 'npm run lite'"
+  },
+  "author": "Michel Barbou Salvador",
+  "license": "MIT",
+  "dependencies": {
+    "@angular/router": "^0.2.0",
+    "angular": "^1.5.6",
+    "lite-server": "^2.2.0"
+  },
+  "devDependencies": {
+    "concurrently": "^2.1.0",
+    "node-sparrest": "0.0.10"
+  }
+}
