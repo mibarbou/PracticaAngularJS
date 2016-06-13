@@ -1,14 +1,12 @@
-<div class="column">
-    <div class="six columns">
-        <div class="thumbnail">
-            <img
-                    ng-src="{{ getPhotoPath(product.photos[0]) }}"
-                    width="60"
-                    height="60">
-            <div class="caption">
-                <h5>{{product.name}}</h5>
-                <a ng-link="['ProductDetail', { id: product.id }]">Ver detalle</a>
-            </div>
+<div class="six columns">
+    <div class="thumbnail">
+        <img
+                ng-src="{{ getPhotoPath(product.photos[0]) }}"
+                width="60"
+                height="60">
+        <div class="caption">
+            <h5>{{product.name}}</h5>
+            <a ng-link="['ProductDetail', { id: product.id }]">Ver detalle</a>
         </div>
     </div>
 </div>

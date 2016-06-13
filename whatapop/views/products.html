@@ -1,8 +1,14 @@
 <div class="row">
    <div class="twelve columns">
+       <label for="filter-products">Busca un producto por su nombre</label>
+       <input
+               id="filter-products"
+               type="text"
+               ng-model="filterProducts"
+               placeholder="Ej. Call of Duty">
        <table class="u-full-width">
            <tbody>
-                <box-product ng-repeat="p in $ctrl.products" product="p" onClickProduct="p"></box-product>
+                <box-product ng-repeat="p in $ctrl.products | filter:{name: filterProducts}" product="p" onClickProduct="p"></box-product>
            </tbody>
        </table>
    </div>
