@@ -7,11 +7,7 @@
                     height="60">
             <div class="caption">
                 <h5>{{product.name}}</h5>
-                <button
-                        ng-click="onClickProduct()"
-                        class="button-primary">
-                    Ver Detalle
-                </button>
+                <a ng-link="['ProductDetail', { id: product.id }]">Ver detalle</a>
             </div>
         </div>
     </div>

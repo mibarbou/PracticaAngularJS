@@ -13,14 +13,18 @@ angular.module("whatapop").directive("boxProduct", function (ProductService) {
         },
         
         link: function (scope) {
+
+            var self = this;
             
             scope.getPhotoPath  = ProductService.getProductPicturePath;
 
 
             scope.onClickProduct = function () {
-                
-                scope.$router.navigate(["ProductDetail"]);
+
+                self.$router.navigate(["ProductDetail"]);
             };
+
+
 
         }
 

@@ -7,7 +7,7 @@ angular
             component: "products"
         }, {
             name: "ProductDetail",
-            path: "/product-detail",
+            path: "/products/:id",
             component: "productDetail"
         }],
         templateUrl: "views/root.html"
