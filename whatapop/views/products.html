@@ -1,0 +1,30 @@
+<div class="row">
+   <div class="twelve columns">
+       <table class="u-full-width">
+           <tbody>
+                <tr ng-repeat="product in $ctrl.products">
+
+
+                    <td>
+                        <img
+                                ng-src="{{ $ctrl.getProductPicturePath(product.photos[0]) }}"
+                                width="60"
+                                height="60">
+                    </td>
+
+                    <td>
+                        <box-product></box-product>
+                       <!--
+                        <div>{{ product.name }}</div>
+                        <div>
+                            <small>
+                                {{ product.description }}
+                            </small>
+                        </div>
+                        -->
+                    </td>
+                </tr>
+           </tbody>
+       </table>
+   </div>
+</div>
