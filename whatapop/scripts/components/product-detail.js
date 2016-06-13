@@ -1,3 +1,19 @@
-/**
- * Created by michel on 10/06/16.
- */
+angular.module("whatapop").component("productDetail", {
+
+    bindings: {
+        $router: "<"
+    },
+
+    templateUrl: "views/product-detail.html",
+    controller: function () {
+
+        var self = this;
+
+        self.$onInit = function () {
+
+
+        };
+
+    }
+});
+
