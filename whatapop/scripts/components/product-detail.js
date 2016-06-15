@@ -1,4 +1,4 @@
-angular.module("whatapop").component("productDetail", {
+var productDetail = {
 
     bindings: {
         $router: "<"
@@ -23,5 +23,8 @@ angular.module("whatapop").component("productDetail", {
         };
 
     }
-});
+};
+
+productDetail.$inject = ["ProductService"];
+angular.module("whatapop").component("productDetail", productDetail);
 

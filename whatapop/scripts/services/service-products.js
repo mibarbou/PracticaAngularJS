@@ -1,4 +1,4 @@
-angular.module("whatapop").service("ProductService", function ($http, Properties) {
+var productService = function ($http, Properties) {
    
     this.getProducts = function () {
       
@@ -16,4 +16,7 @@ angular.module("whatapop").service("ProductService", function ($http, Properties
         return relativePath ? (Properties.urlServer + "/" + relativePath) : undefined;
     };
     
-});
+};
+
+productService.$inject = ["$http", "Properties"];
+angular.module("whatapop").service("ProductService",productService);

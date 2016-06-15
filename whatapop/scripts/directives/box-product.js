@@ -1,4 +1,4 @@
-angular.module("whatapop").directive("boxProduct", function (ProductService) {
+var boxProduct = function (ProductService) {
    
     return {
         bindings: {
@@ -24,12 +24,11 @@ angular.module("whatapop").directive("boxProduct", function (ProductService) {
                 self.$router.navigate(["ProductDetail"]);
             };
 
-
-
         }
 
     };
 
+};
 
-    
-});
+boxProduct.$inject = ["ProductService"];
+angular.module("whatapop").directive("boxProduct", boxProduct);

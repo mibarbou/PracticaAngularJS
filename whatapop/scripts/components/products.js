@@ -1,4 +1,4 @@
-angular.module("whatapop").component("products", {
+var products = {
 
     bindings: {
         $router: "<"
@@ -21,4 +21,7 @@ angular.module("whatapop").component("products", {
         self.getProductPicturePath = ProductService.getProductPicturePath;
 
     }
-});
+};
+
+products.$inject = ["ProductService"];
+angular.module("whatapop").component("products", products);
