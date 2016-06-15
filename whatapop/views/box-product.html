@@ -1,11 +1,12 @@
-<div class="six columns">
-    <div class="thumbnail">
+<div class="four columns product-card">
+    <div>
         <img
-                ng-src="{{ getPhotoPath(product.photos[0]) }}"
-                width="60"
-                height="60">
-        <div class="caption">
-            <h5>{{product.name}}</h5>
+            ng-src="{{ getPhotoPath(product.photos[0]) }}"
+            width="120"
+            height="120"
+            align="center">
+        <div class="card-info">
+            <h6 class="info-label">{{product.name}}</h6>
             <a ng-link="['ProductDetail', { id: product.id }]">Ver detalle</a>
         </div>
     </div>
