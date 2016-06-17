@@ -6,8 +6,16 @@
                 width="200"
                 height="200"
                 align="center">
+
+        <label>Fecha de publicación</label>
+        <p>{{$ctrl.product.published_date | date:'MMMM dd, yyyy'}}</p>
+        <label>Precio</label>
+        <p>{{$ctrl.product.price | currency}}</p>
     </div>
     <div class="five columns">
+        <label>Categoría</label>
+        <p>{{$ctrl.product.category.name}}</p>
+        <label>Descripción</label>
         <h6 ng-bind-html="$ctrl.htmlDescription"></h6>
     </div>
 </div>
