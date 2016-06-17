@@ -1,10 +1,29 @@
 var categoryFilter = function () {
 
-    return function (products, category) {
+    return function (products, cat) {
+
+        if (typeof  cat === 'undefined' || cat === "") {
+
+            return products;
+        }
+
+        var category = parseInt(cat);
+
+        if(category === 0) {
+
+            return products;
+        }
 
         var filteredProducts = [];
-        console.log(products);
-        console.log(category);
+
+        for (var i = 0; i < products.length; i++) {
+
+            if(products[i].category.id === category) {
+
+                filteredProducts.push(products[i]);
+            }
+        }
+
         return filteredProducts;
     };
 

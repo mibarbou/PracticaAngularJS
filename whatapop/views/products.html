@@ -10,15 +10,18 @@
        </div>
         <div class="six columns">
             <label for="categorySelect">Filtrar por categoría</label>
-            <select class="u-full-width" name="categorySelect" id="categorySelect" ng-model="selectedCategory">
-                <option value="undefined">Todas</option>
-                <option ng-repeat="c in $ctrl.categories" value="{{ c }}">{{ c.name }}</option>
+            <select class="u-full-width"
+                    name="categorySelect"
+                    id="categorySelect"
+                    ng-model="selectedCategory"
 
+                    >
+                <option value="" selected="selected">Todas</option>
+                <option ng-repeat="c in $ctrl.categories" value="{{ c.id }}">{{ c.name }}</option>
             </select>
-            <label>{{selectedCategory}}</label>
         </div>
    </div>
    <div class="twelve columns">
-        <box-product ng-repeat="p in $ctrl.products | filter:{name: filterProducts}" product="p" onClickProduct="p"></box-product>
+        <box-product ng-repeat="p in $ctrl.products | filter:{name: filterProducts} | CategoryFilter:selectedCategory" product="p" onClickProduct="p"></box-product>
    </div>
 </div>
