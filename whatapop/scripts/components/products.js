@@ -5,7 +5,7 @@ var products = {
     },
 
     templateUrl: "views/products.html",
-    controller: function (ProductService) {
+    controller: function (ProductService, CategoryService) {
 
         var self = this;
 
@@ -16,12 +16,21 @@ var products = {
                 self.products = res.data;
 
             });
+
+            CategoryService.getCategories().then(function (res) {
+
+                self.categories = res.data;
+
+            });
+
+
         };
-        
+
+
         self.getProductPicturePath = ProductService.getProductPicturePath;
 
     }
 };
 
-products.$inject = ["ProductService"];
+products.$inject = ["ProductService", "CategoryService"];
 angular.module("whatapop").component("products", products);

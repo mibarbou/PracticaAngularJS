@@ -5,7 +5,7 @@ var productDetail = {
     },
 
     templateUrl: "views/product-detail.html",
-    controller: function (ProductService) {
+    controller: function (ProductService, $sce) {
 
         var self = this;
 
@@ -17,7 +17,10 @@ var productDetail = {
             ProductService.getProduct(id).then(function (res) {
                 
                 self.product = res.data;
-                
+
+                self.photoPath = ProductService.getProductPicturePath;
+
+                self.htmlDescription = $sce.trustAsHtml(self.product.description);
             });
 
         };
@@ -25,6 +28,6 @@ var productDetail = {
     }
 };
 
-productDetail.$inject = ["ProductService"];
+productDetail.$inject = ["ProductService", "$sce"];
 angular.module("whatapop").component("productDetail", productDetail);
 

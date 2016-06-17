@@ -1,1 +1,13 @@
-<h1>{{$ctrl.product.name}}</h1>
+<div class="twelve columns">
+    <h1>{{$ctrl.product.name}}</h1>
+    <div class="six columns">
+        <img
+                ng-src="{{ $ctrl.photoPath($ctrl.product.photos[0]) }}"
+                width="200"
+                height="200"
+                align="center">
+    </div>
+    <div class="five columns">
+        <h6 ng-bind-html="$ctrl.htmlDescription"></h6>
+    </div>
+</div>

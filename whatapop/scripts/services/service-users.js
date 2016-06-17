@@ -2,7 +2,7 @@ var userService = function ($http, Properties) {
 
     this.getUsers = function () {
 
-        return $http(Properties.urlServer + Properties.endpointUsers);
+        return $http.get(Properties.urlServer + Properties.endpointUsers);
     };
 
 };
