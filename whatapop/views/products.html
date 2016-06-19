@@ -9,19 +9,37 @@
                placeholder="Ej. Call of Duty">
        </div>
         <div class="six columns">
-            <label for="categorySelect">Filtrar por categoría</label>
-            <select class="u-full-width"
-                    name="categorySelect"
-                    id="categorySelect"
-                    ng-model="selectedCategory"
-
-                    >
-                <option value="" selected="selected">Todas</option>
-                <option ng-repeat="c in $ctrl.categories" value="{{ c.id }}">{{ c.name }}</option>
-            </select>
+            <div class="six columns">
+                <label for="categorySelect">Filtrar por categoría</label>
+                <select class="u-full-width"
+                        name="categorySelect"
+                        id="categorySelect"
+                        ng-model="selectedCategory"
+                        >
+                    <option value="" selected="selected">Todas</option>
+                    <option ng-repeat="c in $ctrl.categories" value="{{ c.id }}">{{ c.name }}</option>
+                </select>
+            </div>
+            <div class="six columns">
+                <label for="filter-distance">Filtrar por distancia</label>
+                <input type="range"
+                       min="1"
+                       max="1000"
+                       step="1"
+                       value="50"
+                       id="filter-distance"
+                       ng-model="selectedDistance"
+                        ng-init="1000">
+                <label for="filter-distance" align="center">{{selectedDistance}}km</label>
+            </div>
         </div>
    </div>
    <div class="twelve columns">
-        <box-product ng-repeat="p in $ctrl.products | filter:{name: filterProducts} | CategoryFilter:selectedCategory" product="p" onClickProduct="p"></box-product>
+        <box-product
+                ng-repeat="p in $ctrl.products | filter:{name: filterProducts} | CategoryFilter:selectedCategory | DistanceFilter:$ctrl.users:1000:$ctrl.currentLocation"
+                product="p"
+                onClickProduct="p"
+                >
+        </box-product>
    </div>
 </div>

@@ -5,6 +5,11 @@ var userService = function ($http, Properties) {
         return $http.get(Properties.urlServer + Properties.endpointUsers);
     };
 
+    this.getUser = function (id) {
+
+        return $http.get(Properties.urlServer + Properties.endpointUsers + "/" + id);
+    };
+
 };
 
 userService.$inject = ["$http", "Properties"];

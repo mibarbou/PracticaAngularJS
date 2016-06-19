@@ -5,7 +5,7 @@ var products = {
     },
 
     templateUrl: "views/products.html",
-    controller: function (ProductService, CategoryService) {
+    controller: function (ProductService, CategoryService, LocationService, UserService) {
 
         var self = this;
 
@@ -23,14 +23,23 @@ var products = {
 
             });
 
+            LocationService.getUserLocation().then(function (res) {
+
+                self.currentLocation = res;
+
+            });
+
+            UserService.getUsers().then(function (res) {
+
+                self.users = res.data;
+            });
 
         };
-
 
         self.getProductPicturePath = ProductService.getProductPicturePath;
 
     }
 };
 
-products.$inject = ["ProductService", "CategoryService"];
+products.$inject = ["ProductService", "CategoryService", "LocationService", "UserService"];
 angular.module("whatapop").component("products", products);
