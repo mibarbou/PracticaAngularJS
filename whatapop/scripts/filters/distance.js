@@ -34,5 +34,5 @@ var distanceFilter = function ($haversine) {
 
 };
 
-distanceFilter.$inject = ["$haversine", "$filter"];
+distanceFilter.$inject = ["$haversine"];
 angular.module("whatapop").filter("DistanceFilter", distanceFilter);
