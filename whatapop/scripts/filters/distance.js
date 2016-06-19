@@ -1,59 +1,38 @@
 var distanceFilter = function ($haversine) {
 
-    var maxDistance;
+    var radio;
 
-    return function (products, users, distance, location) {
+    return function (products, sellers, distance, location) {
 
-        console.log(location);
-        console.log(distance);
 
-        if (typeof  location === 'undefined' || typeof distance === 'undefined' || typeof users === 'undefined') {
+        if (typeof  location === 'undefined' || typeof distance === 'undefined' || typeof sellers === 'undefined') {
 
             return products;
         }
 
-        maxDistance = parseInt(distance);
+        radio = parseInt(distance);
 
-        var filteredProducts = [];
+        var nearSellers = sellers.reduce(function(selected, seller) {
 
-        /*for (var i = 0; i < products.length; i++) {
+            var pos = {"latitude": seller.latitude, "longitude": seller.longitude};
 
-            for (var j = 0; j < users.length; i++) {
-
-                if(products[i].seller.id === users[j].id) {
-
-                    var coordinate = {
-                        "latitude": users[j].latitude,
-                        "longitude": users[j].longitude
-                    };
-
-                    if(isReachable(location, coordinate)) {
-
-                        filteredProducts.push(products[i]);
-                    }
-                }
+            if ($haversine.distance(pos, location)/1000 < radio) {
+                selected.push(seller.id);
             }
-        }*/
+            return selected;
+        }, []);
 
-        return products;
-    };
+        var nearProducts = products.filter(function (product) {
 
-    function isReachable(coord1, coord2) {
+            return nearSellers.indexOf(product.seller.id) > -1;
 
-        var currentDistance = $haversine.distance(coord1, coord2)/1000;
+        });
 
-        if(currentDistance <= maxDistance) {
 
-            return true;
-
-        } else {
-
-            return false;
-        }
-
+        return nearProducts;
     };
 
 };
 
-distanceFilter.$inject = ["$haversine"];
+distanceFilter.$inject = ["$haversine", "$filter"];
 angular.module("whatapop").filter("DistanceFilter", distanceFilter);

@@ -24,19 +24,19 @@
                 <label for="filter-distance">Filtrar por distancia</label>
                 <input type="range"
                        min="1"
-                       max="1000"
+                       max="100"
                        step="1"
-                       value="50"
+                       value="200"
                        id="filter-distance"
                        ng-model="selectedDistance"
-                        ng-init="1000">
+                        >
                 <label for="filter-distance" align="center">{{selectedDistance}}km</label>
             </div>
         </div>
    </div>
    <div class="twelve columns">
         <box-product
-                ng-repeat="p in $ctrl.products | filter:{name: filterProducts} | CategoryFilter:selectedCategory | DistanceFilter:$ctrl.users:1000:$ctrl.currentLocation"
+                ng-repeat="p in $ctrl.products | filter:{name: filterProducts} | CategoryFilter:selectedCategory | DistanceFilter:$ctrl.users:selectedDistance:$ctrl.currentLocation"
                 product="p"
                 onClickProduct="p"
                 >
